@@ -50,26 +50,26 @@ public class LanguageCodeConverter {
                 String[] LanguageCodeList = LanguageList[LanguageList.length - 1].split(" ");
                 String LanguageCode = LanguageCodeList[LanguageCodeList.length - 1];
 
-                String Language = "";
+                StringBuilder Language = new StringBuilder();
                 for (int i = 0; i < LanguageList.length - 1; i++)
                 {
                     if (i + 1 >= LanguageList.length - 1)
                     {
-                        Language += LanguageList[i];
+                        Language.append(LanguageList[i]);
                     }
                     else
                     {
-                        Language += (LanguageList[i]) + " ";
+                        Language.append(LanguageList[i]).append(" ");
                     }
                 }
 
                 for (int i = 0; i < LanguageCodeList.length - 1; i++)
                 {
-                    Language += LanguageCodeList[i];
+                    Language.append(LanguageCodeList[i]);
                 }
 
-                languageCodeToLanguage.put(LanguageCode, Language);
-                languageToLanguageCode.put(Language, LanguageCode);
+                languageCodeToLanguage.put(LanguageCode, Language.toString());
+                languageToLanguageCode.put(Language.toString(), LanguageCode);
 
             }
 
